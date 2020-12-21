@@ -22,6 +22,11 @@ param(
     [Parameter(Mandatory=$false,Position=2)]
     [int]$delayInSeconds
 )
+
+    # Clear the Buffer otherwise it captures the Enter key on the UP direction
+    # https://github.com/PowerShell/PSReadLine/issues/959
+    Start-Sleep -Milliseconds 100
+    $Host.UI.RawUI.FlushInputBuffer()
     
     # Do the math to convert the delay given into milliseconds
     # and divide by the sleep value so that the correct delay
