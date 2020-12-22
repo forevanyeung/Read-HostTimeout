@@ -44,7 +44,7 @@ param(
     While ( (!$host.ui.rawui.KeyAvailable) -and ($count -lt $delay) ){
         start-sleep -m $sleep
         $count++
-        If ($count -eq $delay) { "`n"; return $null}
+        If ($count -eq $delay) { Write-Host ""; return $null}
     }
     
     # This block is where the script keeps reading for a key.  Every time
